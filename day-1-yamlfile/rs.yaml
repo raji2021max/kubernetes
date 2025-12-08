@@ -1,0 +1,18 @@
+apiVersion: apps/v1         # API version for ReplicaSet
+kind: ReplicaSet            # Creating ReplicaSet resource
+metadata:
+  name: my-replicaset       # ReplicaSet name
+spec:
+  replicas: 3               # Creating 3 Pods (replicas)
+  selector:                 # To match Pods with label
+    matchLabels:
+      app: nginx            # Label to identify Pods
+  template:                 # Pod template to create new Pods
+    metadata:
+      labels:
+        app: nginx          # Adding label to Pod
+    spec:
+      containers:
+      - name: nginx-container   # Container name
+        image: nginx            # Docker image to run
+

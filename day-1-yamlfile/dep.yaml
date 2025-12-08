@@ -1,0 +1,19 @@
+apiVersion: apps/v1         # API version for Deployment
+kind: Deployment            # Creating Deployment resource
+metadata:
+  name: my-deployment       # Deployment name
+spec:
+  replicas: 3               # Creating 3 Pods
+  selector:                 # Match Pods using label
+    matchLabels:
+      app: nginx            # Label to identify Pods
+  template:                 # Pod template to create Pods
+    metadata:
+      labels:
+        app: nginx          # Adding label to Pod
+    spec:
+      containers:
+      - name: nginx-container   # Container name
+        image: nginx            # Docker image to run
+
+
